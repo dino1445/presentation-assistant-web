@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation Assistant AI Agent - 5 Level Framework</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .flow-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .flow-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Top Navigation / Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 text-white p-2 rounded-xl shadow-md shadow-blue-500/20">
+                    <i class="fa-solid fa-robot text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900">Hermes AI Framework</span>
+                    <span class="ml-2 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200 hidden sm:inline-block">5-Level Specification</span>
+                </div>
+            </div>
+
+            <!-- Level Navigation Links -->
+            <nav class="hidden md:flex space-x-1 lg:space-x-3 text-xs font-semibold text-slate-600">
+                <a href="#level1" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition">Level 1</a>
+                <a href="#level2" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition">Level 2</a>
+                <a href="#level3" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition">Level 3</a>
+                <a href="#level4" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition">Level 4</a>
+                <a href="#level5" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition">Level 5</a>
+            </nav>
+
+            <!-- Language Switcher Bar -->
+            <div class="flex items-center space-x-2">
+                <div class="inline-flex rounded-xl p-1 bg-slate-200/80 border border-slate-300/50">
+                    <button onclick="changeLang('en')" id="btn-en" class="px-3 py-1 text-xs font-bold rounded-lg transition duration-150 bg-white text-blue-700 shadow-sm">
+                        EN
+                    </button>
+                    <button onclick="changeLang('zh')" id="btn-zh" class="px-3 py-1 text-xs font-bold rounded-lg transition duration-150 text-slate-600 hover:text-slate-900">
+                        中文
+                    </button>
+                    <button onclick="changeLang('vi')" id="btn-vi" class="px-3 py-1 text-xs font-bold rounded-lg transition duration-150 text-slate-600 hover:text-slate-900">
+                        Tiếng Việt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Hero Banner -->
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-8 sm:p-12 shadow-2xl border border-slate-800">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-3xl">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-4">
+                    <i class="fa-solid fa-sparkles"></i> AI Agent Architecture Lifecycle
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4" data-i18n="hero_title">
+                    Presentation Assistant Agent Design
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6" data-i18n="hero_desc">
+                    Comprehensive documentation covering Level 1 to Level 5 implementation: from task discovery, job definition, and decision workflow to Hermes agent profiling and live system test runs.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#level3" class="inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/30">
+                        <i class="fa-solid fa-diagram-project mr-2"></i> <span data-i18n="view_workflow">View Flowchart</span>
+                    </a>
+                    <a href="#level5" class="inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                        <i class="fa-solid fa-vial mr-2"></i> <span data-i18n="view_test_run">Test Results & Tools</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEVEL 1 SECTION -->
+        <section id="level1" class="scroll-mt-20">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">L1</span>
+                    <h2 class="text-2xl font-bold text-slate-900" data-i18n="l1_title">Level 1 — Identify the Recurring Task</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Task Card -->
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-rotate text-lg"></i>
+                            </div>
+                            <h3 class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-1" data-i18n="l1_task_label">Recurring Task</h3>
+                            <p class="text-slate-900 font-semibold text-base" data-i18n="l1_task_val">
+                                Preparing presentations for class assignments.
+                            </p>
+                        </div>
+                        <p class="text-slate-500 text-xs mt-4" data-i18n="l1_task_sub">
+                            The Agent helps the student understand the instructor's requirements, identify the main topic, research relevant information, create PowerPoint slides, and prepare for the presentation.
+                        </p>
+                    </div>
+
+                    <!-- Role Card -->
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-user-gear text-lg"></i>
+                            </div>
+                            <h3 class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-1" data-i18n="l1_role_label">Agent Role</h3>
+                            <p class="text-slate-900 font-bold text-xl text-indigo-900" data-i18n="l1_role_val">
+                                Presentation Assistant
+                            </p>
+                        </div>
+                        <p class="text-slate-500 text-xs mt-4" data-i18n="l1_role_sub">
+                            Acts as a dedicated academic co-pilot throughout assignment preparation.
+                        </p>
+                    </div>
+
+                    <!-- Goal Card -->
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-bullseye text-lg"></i>
+                            </div>
+                            <h3 class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-1" data-i18n="l1_goal_label">Goal</h3>
+                            <p class="text-slate-900 font-semibold text-base" data-i18n="l1_goal_val">
+                                Turn an instructor's assignment into a clear, well-supported presentation that the student can review and approve.
+                            </p>
+                        </div>
+                        <p class="text-slate-500 text-xs mt-4" data-i18n="l1_goal_sub">
+                            Ensures zero fabrication and strictly verified citations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEVEL 2 SECTION -->
+        <section id="level2" class="scroll-mt-20">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">L2</span>
+                    <h2 class="text-2xl font-bold text-slate-900" data-i18n="l2_title">Level 2 — Define the Job and Its Requirements</h2>
+                </div>
+
+                <!-- Job Definition Banner -->
+                <div class="mb-8 p-5 bg-blue-50/70 border-l-4 border-blue-600 rounded-r-xl">
+                    <h3 class="text-sm font-bold text-blue-900 uppercase tracking-wider mb-1" data-i18n="l2_job_def_heading">Job Definition</h3>
+                    <p class="text-slate-700 text-sm sm:text-base leading-relaxed" data-i18n="l2_job_def_body">
+                        When given a topic and assignment from an instructor, the Agent interprets the requirements, identifies the main focus, finds and selects relevant information, creates concise PowerPoint slides, checks their quality, and asks the student to review the slide layout before considering the work complete.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Inputs -->
+                    <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50">
+                        <div class="flex items-center space-x-2 text-blue-600 font-bold mb-4">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span data-i18n="l2_inputs_title">Inputs</span>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-blue-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_in_1">The topic and instructions from the instructor</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-blue-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_in_2">Lecture materials, recordings, notes, and marked passages from the textbook</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-blue-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_in_3">Relevant information and statistics from the internet</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Outputs -->
+                    <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50">
+                        <div class="flex items-center space-x-2 text-emerald-600 font-bold mb-4">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span data-i18n="l2_outputs_title">Outputs</span>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_out_1">A PowerPoint presentation with references</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_out_2">Clear, easy-to-follow slides</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_out_3">A draft layout for the student to review and approve</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Slide Standards -->
+                    <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50">
+                        <div class="flex items-center space-x-2 text-purple-600 font-bold mb-4">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span data-i18n="l2_reqs_title">Slide Requirements</span>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_req_1">One main idea per slide</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_req_2">About 10–20 words per slide, with a maximum of 20 words based on the student's preference</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_req_3">Uncluttered layouts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_req_4">Readable charts and relevant images</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span data-i18n="l2_req_5">Sources provided for factual claims and statistics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEVEL 3 SECTION: WORKFLOW DIAGRAM -->
+        <section id="level3" class="scroll-mt-20">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">L3</span>
+                        <h2 class="text-2xl font-bold text-slate-900" data-i18n="l3_title">Level 3 — End-to-End Workflow & Flowchart</h2>
+                    </div>
+                    <span class="text-xs text-slate-500 hidden sm:inline-block" data-i18n="l3_subtitle">Interactive Decision Tree</span>
+                </div>
+
+                <!-- Visual Flowchart Container -->
+                <div class="p-6 bg-slate-900 rounded-2xl text-slate-200 overflow-x-auto">
+                    <div class="min-w-[850px] space-y-6">
+                        
+                        <!-- Step 1: Input -->
+                        <div class="flex justify-center">
+                            <div class="flow-card bg-slate-800 border border-slate-700 p-3 rounded-xl w-72 text-center shadow">
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-blue-400 font-bold block mb-1">Start</span>
+                                <span class="text-xs font-medium" data-i18n="flow_1">Receive the instructor's topic and assignment</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Step 2: Read Requirements -->
+                        <div class="flex justify-center">
+                            <div class="flow-card bg-slate-800 border border-slate-700 p-3 rounded-xl w-96 text-center shadow">
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-blue-400 font-bold block mb-1">Analysis</span>
+                                <span class="text-xs font-medium" data-i18n="flow_2">Read the assignment and identify the main requirements</span>
+                                <p class="text-[11px] text-slate-400 mt-1" data-i18n="flow_2_sub">Find the key focus from bold text, lecture recordings, underlined notes, and orange highlights</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Decision 1: Topic Clear? -->
+                        <div class="flex justify-center items-center space-x-6">
+                            <div class="bg-amber-950/40 border border-amber-600/40 text-amber-200 p-3 rounded-xl w-64 text-center text-xs font-semibold">
+                                <span data-i18n="flow_q1">Is the topic clear and focused?</span>
+                            </div>
+                        </div>
+
+                        <!-- Branch 1 -->
+                        <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto text-center text-xs">
+                            <div class="flex flex-col items-center">
+                                <span class="text-red-400 font-bold text-[10px] mb-1">No</span>
+                                <i class="fa-solid fa-arrow-down text-slate-600 text-xs mb-2"></i>
+                                <div class="bg-slate-800 border border-red-500/30 p-3 rounded-xl w-full text-slate-300">
+                                    <span data-i18n="flow_no1">Review lecture notes and narrow the topic</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span class="text-emerald-400 font-bold text-[10px] mb-1">Yes</span>
+                                <i class="fa-solid fa-arrow-down text-slate-600 text-xs mb-2"></i>
+                                <div class="bg-slate-800 border border-emerald-500/30 p-3 rounded-xl w-full text-slate-300">
+                                    <span data-i18n="flow_yes1">Choose relevant keywords and search for credible sources</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Source Validation -->
+                        <div class="flex justify-center">
+                            <div class="bg-slate-800 border border-slate-700 p-3 rounded-xl w-96 text-center text-xs">
+                                <span data-i18n="flow_source_check">Check publishers, dates, statistics, and source relevance</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Decision 2: Central Issue? -->
+                        <div class="flex justify-center">
+                            <div class="bg-amber-950/40 border border-amber-600/40 text-amber-200 p-3 rounded-xl w-64 text-center text-xs font-semibold">
+                                <span data-i18n="flow_q2">Is there a strong central issue or debate?</span>
+                            </div>
+                        </div>
+
+                        <!-- Branch 2 -->
+                        <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto text-center text-xs">
+                            <div class="flex flex-col items-center">
+                                <span class="text-blue-400 font-bold text-[10px] mb-1">Yes</span>
+                                <i class="fa-solid fa-arrow-down text-slate-600 text-xs mb-2"></i>
+                                <div class="bg-slate-800 border border-slate-700 p-3 rounded-xl w-full text-slate-300">
+                                    <span data-i18n="flow_yes2">Organize evidence for both sides</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span class="text-blue-400 font-bold text-[10px] mb-1">No</span>
+                                <i class="fa-solid fa-arrow-down text-slate-600 text-xs mb-2"></i>
+                                <div class="bg-slate-800 border border-slate-700 p-3 rounded-xl w-full text-slate-300">
+                                    <span data-i18n="flow_no2">Organize the key points and supporting evidence</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Outline & PPT Creation -->
+                        <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto text-xs">
+                            <div class="bg-slate-800 border border-slate-700 p-3 rounded-xl text-center">
+                                <span class="text-[10px] font-mono text-blue-400 block mb-1">Outline</span>
+                                <span data-i18n="flow_outline">Create an outline: introduction, context, main points, conclusion, and references</span>
+                            </div>
+                            <div class="bg-slate-800 border border-slate-700 p-3 rounded-xl text-center">
+                                <span class="text-[10px] font-mono text-blue-400 block mb-1">PowerPoint Creation</span>
+                                <span data-i18n="flow_ppt">Create the PowerPoint: One idea per slide; no more than 20 words per slide</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Assets & Checks -->
+                        <div class="flex justify-center">
+                            <div class="bg-slate-800 border border-slate-700 p-3 rounded-xl w-96 text-center text-xs">
+                                <span data-i18n="flow_visuals">Use clear charts and relevant images</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Self-Check & Approval Loop -->
+                        <div class="max-w-xl mx-auto bg-indigo-950/50 border border-indigo-500/40 p-4 rounded-xl text-center space-y-3">
+                            <div class="text-xs font-semibold text-indigo-300">
+                                <i class="fa-solid fa-microchip mr-1"></i> <span data-i18n="flow_aicheck">Ask AI to check word count, layout, chart readability, and image relevance</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-down text-slate-500 text-xs"></i>
+                            <div class="text-xs font-bold text-white bg-indigo-900/80 py-2 px-4 rounded-lg inline-block border border-indigo-400/30">
+                                <span data-i18n="flow_approve_q">Does the user approve the slide layout?</span>
+                            </div>
+                            <div class="flex justify-center space-x-8 text-xs pt-1">
+                                <span class="text-red-400 font-semibold"><i class="fa-solid fa-rotate-left mr-1"></i> <span data-i18n="flow_rev">No: revise</span></span>
+                                <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-check-double mr-1"></i> <span data-i18n="flow_app">Yes</span></span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-xs"></i></div>
+
+                        <!-- Delivery -->
+                        <div class="grid grid-cols-2 gap-4 max-w-xl mx-auto text-xs">
+                            <div class="bg-emerald-950/60 border border-emerald-500/50 text-emerald-200 p-3 rounded-xl text-center font-semibold">
+                                <i class="fa-solid fa-paper-plane mr-1"></i>
+                                <span data-i18n="flow_delivery">Deliver the slides and references</span>
+                            </div>
+                            <div class="bg-emerald-950/60 border border-emerald-500/50 text-emerald-200 p-3 rounded-xl text-center font-semibold">
+                                <i class="fa-solid fa-chalkboard-user mr-1"></i>
+                                <span data-i18n="flow_rehearse">Review the key ideas and rehearse the presentation</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEVEL 4 SECTION -->
+        <section id="level4" class="scroll-mt-20">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">L4</span>
+                    <h2 class="text-2xl font-bold text-slate-900" data-i18n="l4_title">Level 4 — Create the Hermes Agent Profile</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Profile Identity Box -->
+                    <div class="lg:col-span-1 p-5 rounded-xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-mono uppercase text-blue-400 tracking-widest font-semibold block mb-2" data-i18n="l4_meta">Hermes Profile & Agent Name</span>
+                            <div class="bg-slate-800 p-3 rounded-lg font-mono text-sm text-blue-300 border border-slate-700 mb-2">
+                                presentation-assistant
+                            </div>
+                            <div class="text-xs text-slate-400 mb-4 font-semibold" data-i18n="l4_agent_name">
+                                Agent name: Presentation Assistant
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="l4_desc">
+                                The profile includes the job goal, inputs, outputs, workflow, quality standards, self-checks, exception handling, and limitations.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-400">
+                            <i class="fa-solid fa-shield-halved text-emerald-400 mr-1.5"></i> <span data-i18n="l4_guardrail">Strict Academic Integrity Guardrails</span>
+                        </div>
+                    </div>
+
+                    <!-- Rules List -->
+                    <div class="lg:col-span-2 p-5 rounded-xl border border-slate-200 bg-slate-50/50">
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4" data-i18n="l4_rules_title">The profile tells the Agent to:</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                            <div class="p-3 bg-white rounded-lg border border-slate-200/70 shadow-xs flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span data-i18n="l4_r1">Follow the workflow defined in Levels 2 and 3.</span>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg border border-slate-200/70 shadow-xs flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span data-i18n="l4_r2">Check sources and statistics before using them.</span>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg border border-slate-200/70 shadow-xs flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span data-i18n="l4_r3">Check slide length, layout, charts, and images before requesting approval.</span>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg border border-slate-200/70 shadow-xs flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1"></i>
+                                <span data-i18n="l4_r4">Ask the student when the assignment is unclear or the evidence is insufficient.</span>
+                            </div>
+                            <div class="p-3 bg-red-50/70 border border-red-200 rounded-lg shadow-xs flex items-start space-x-2 text-red-900 col-span-1 sm:col-span-2">
+                                <i class="fa-solid fa-ban text-red-600 mt-1"></i>
+                                <div>
+                                    <strong class="block text-xs uppercase font-bold text-red-700 mb-1" data-i18n="l4_strict_header">Strict Prohibitions & Limitations</strong>
+                                    <ul class="list-disc list-inside space-y-1 text-xs text-red-800">
+                                        <li data-i18n="l4_r5">Never invent statistics, sources, or quotations.</li>
+                                        <li data-i18n="l4_r6">Never claim it searched or checked something unless it actually did.</li>
+                                        <li data-i18n="l4_r7">Never finalize a presentation before the student approves the layout.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEVEL 5 SECTION -->
+        <section id="level5" class="scroll-mt-20">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-8">
+                <div class="flex items-center space-x-3">
+                    <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">L5</span>
+                    <h2 class="text-2xl font-bold text-slate-900" data-i18n="l5_title">Level 5 — Presentation Assistant Tool Connection and Test Run</h2>
+                </div>
+
+                <!-- Tools -->
+                <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/60">
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3" data-i18n="l5_tools_title">Tools Connected</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="l5_tools_desc">
+                        Hermes AI Core, Student Learning Management System (LMS) or direct chat platform, Academic databases and reliable internet search APIs (e.g., Google Scholar API, public source indices), and PowerPoint generation API.
+                    </p>
+                </div>
+
+                <!-- How it works -->
+                <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/60">
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2" data-i18n="l5_hiw_title">How it works</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed" data-i18n="l5_hiw_desc">
+                        Students submit assignments and topics via the [Student Platform]. The Agent (using [Hermes]) first identifies and refines requirements (following Levels 2 and 3 workflow). It then uses the [Search APIs] to find and verify credible sources (referencing Level 3 checks) and organizes points. A draft presentation with references is generated using the [PowerPoint API], strictly following Level 2 slide standards (one main idea per slide, 10-20 words, max 20). The Agent provides a preview link for student layout and content review (the ‘Ask AI to check’ step from Level 3 is integrated here). Following explicit student approval (Level 4 limitation), the final PowerPoint file is generated and delivered via the [Student Platform].
+                    </p>
+                </div>
+
+                <!-- Test run results & Limitations -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Test Run Results -->
+                    <div class="p-5 rounded-xl border border-emerald-200 bg-emerald-50/30">
+                        <div class="flex items-center space-x-2 text-emerald-800 font-bold mb-3">
+                            <i class="fa-solid fa-vial-circle-check text-emerald-600"></i>
+                            <span data-i18n="l5_results_title">Test run results</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3" data-i18n="l5_results_desc">
+                            The Presentation Assistant has been tested with various assignment topics from different academic disciplines (e.g., history debate, science review). The tests confirm the agent's ability to:
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_res_1">Accurately interpret complex requirements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_res_2">Identify and verify credible sources without fabrication</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_res_3">Construct presentations with appropriate charts and imagery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-emerald-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_res_4">Integrated AI self-checks for word count and layout readability function correctly</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- System Limitations -->
+                    <div class="p-5 rounded-xl border border-amber-200 bg-amber-50/30">
+                        <div class="flex items-center space-x-2 text-amber-800 font-bold mb-3">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
+                            <span data-i18n="l5_limits_title">Limitations</span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-700">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-minus text-amber-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_lim_1">The Agent relies on text-based assignments and topics for input.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-minus text-amber-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_lim_2">Initial generation does not include complex real-time simultaneous editing.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-minus text-amber-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_lim_3">Automated credibility checks are limited to recognized academic and authoritative online sources.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-minus text-amber-600 mr-2 mt-0.5"></i>
+                                <span data-i18n="l5_lim_4">Source checks should still be manually reviewed for very niche topics. User approval (Level 4) is essential for layout and content before final delivery.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p data-i18n="footer_text">Hermes AI Architecture Framework • Presentation Assistant Specification</p>
+        </div>
+    </footer>
+
+    <!-- i18n JavaScript Dictionary and Switcher Script -->
+    <script>
+        const translations = {
+            en: {
+                hero_title: "Presentation Assistant Agent Design",
+                hero_desc: "Comprehensive documentation covering Level 1 to Level 5 implementation: from task discovery, job definition, and decision workflow to Hermes agent profiling and live system test runs.",
+                view_workflow: "View Flowchart",
+                view_test_run: "Test Results & Tools",
+                
+                // L1
+                l1_title: "Level 1 — Identify the Recurring Task",
+                l1_task_label: "Recurring Task",
+                l1_task_val: "Preparing presentations for class assignments.",
+                l1_task_sub: "The Agent helps the student understand the instructor's requirements, identify the main topic, research relevant information, create PowerPoint slides, and prepare for the presentation.",
+                l1_role_label: "Agent Role",
+                l1_role_val: "Presentation Assistant",
+                l1_role_sub: "Acts as a dedicated academic co-pilot throughout assignment preparation.",
+                l1_goal_label: "Goal",
+                l1_goal_val: "Turn an instructor's assignment into a clear, well-supported presentation that the student can review and approve.",
+                l1_goal_sub: "Ensures zero fabrication and strictly verified citations.",
+
+                // L2
+                l2_title: "Level 2 — Define the Job and Its Requirements",
+                l2_job_def_heading: "Job Definition",
+                l2_job_def_body: "When given a topic and assignment from an instructor, the Agent interprets the requirements, identifies the main focus, finds and selects relevant information, creates concise PowerPoint slides, checks their quality, and asks the student to review the slide layout before considering the work complete.",
+                l2_inputs_title: "Inputs",
+                l2_in_1: "The topic and instructions from the instructor",
+                l2_in_2: "Lecture materials, recordings, notes, and marked passages from the textbook",
+                l2_in_3: "Relevant information and statistics from the internet",
+                l2_outputs_title: "Outputs",
+                l2_out_1: "A PowerPoint presentation with references",
+                l2_out_2: "Clear, easy-to-follow slides",
+                l2_out_3: "A draft layout for the student to review and approve",
+                l2_reqs_title: "Slide Requirements",
+                l2_req_1: "One main idea per slide",
+                l2_req_2: "About 10–20 words per slide, with a maximum of 20 words based on the student's preference",
+                l2_req_3: "Uncluttered layouts",
+                l2_req_4: "Readable charts and relevant images",
+                l2_req_5: "Sources provided for factual claims and statistics",
+
+                // L3
+                l3_title: "Level 3 — End-to-End Workflow & Flowchart",
+                l3_subtitle: "Interactive Decision Tree",
+                flow_1: "Receive the instructor's topic and assignment",
+                flow_2: "Read the assignment and identify the main requirements",
+                flow_2_sub: "Find the key focus from bold text, lecture recordings, underlined notes, and orange highlights",
+                flow_q1: "Is the topic clear and focused?",
+                flow_no1: "Review lecture notes and narrow the topic",
+                flow_yes1: "Choose relevant keywords and search for credible sources",
+                flow_source_check: "Check publishers, dates, statistics, and source relevance",
+                flow_q2: "Is there a strong central issue or debate?",
+                flow_yes2: "Organize evidence for both sides",
+                flow_no2: "Organize the key points and supporting evidence",
+                flow_outline: "Create an outline: introduction, context, main points, conclusion, and references",
+                flow_ppt: "Create the PowerPoint: One idea per slide; no more than 20 words per slide",
+                flow_visuals: "Use clear charts and relevant images",
+                flow_aicheck: "Ask AI to check word count, layout, chart readability, and image relevance",
+                flow_approve_q: "Does the user approve the slide layout?",
+                flow_rev: "No: revise",
+                flow_app: "Yes",
+                flow_delivery: "Deliver the slides and references",
+                flow_rehearse: "Review the key ideas and rehearse the presentation",
+
+                // L4
+                l4_title: "Level 4 — Create the Hermes Agent Profile",
+                l4_meta: "Hermes Profile & Agent Name",
+                l4_agent_name: "Agent name: Presentation Assistant",
+                l4_desc: "The profile includes the job goal, inputs, outputs, workflow, quality standards, self-checks, exception handling, and limitations.",
+                l4_guardrail: "Strict Academic Integrity Guardrails",
+                l4_rules_title: "The profile tells the Agent to:",
+                l4_r1: "Follow the workflow defined in Levels 2 and 3.",
+                l4_r2: "Check sources and statistics before using them.",
+                l4_r3: "Check slide length, layout, charts, and images before requesting approval.",
+                l4_r4: "Ask the student when the assignment is unclear or the evidence is insufficient.",
+                l4_strict_header: "Strict Prohibitions & Limitations",
+                l4_r5: "Never invent statistics, sources, or quotations.",
+                l4_r6: "Never claim it searched or checked something unless it actually did.",
+                l4_r7: "Never finalize a presentation before the student approves the layout.",
+
+                // L5
+                l5_title: "Level 5 — Presentation Assistant Tool Connection and Test Run",
+                l5_tools_title: "Tools",
+                l5_tools_desc: "Hermes AI Core, Student Learning Management System (LMS) or direct chat platform, Academic databases and reliable internet search APIs (e.g., Google Scholar API, public source indices), and PowerPoint generation API.",
+                l5_hiw_title: "How it works",
+                l5_hiw_desc: "Students submit assignments and topics via the [Student Platform]. The Agent (using [Hermes]) first identifies and refines requirements (following Levels 2 and 3 workflow). It then uses the [Search APIs] to find and verify credible sources (referencing Level 3 checks) and organizes points. A draft presentation with references is generated using the [PowerPoint API], strictly following Level 2 slide standards (one main idea per slide, 10-20 words, max 20). The Agent provides a preview link for student layout and content review (the ‘Ask AI to check’ step from Level 3 is integrated here). Following explicit student approval (Level 4 limitation), the final PowerPoint file is generated and delivered via the [Student Platform].",
+                l5_results_title: "Test run results",
+                l5_results_desc: "The Presentation Assistant has been tested with various assignment topics from different academic disciplines (e.g., history debate, science review). The tests confirm the agent's ability to:",
+                l5_res_1: "Accurately interpret complex requirements",
+                l5_res_2: "Identify and verify credible sources without fabrication",
+                l5_res_3: "Construct presentations with appropriate charts and imagery",
+                l5_res_4: "Integrated AI self-checks for word count and layout readability function correctly",
+                l5_limits_title: "Limitations",
+                l5_lim_1: "The Agent relies on text-based assignments and topics for input.",
+                l5_lim_2: "Initial generation does not include complex real-time simultaneous editing.",
+                l5_lim_3: "Automated credibility checks are limited to recognized academic and authoritative online sources.",
+                l5_lim_4: "Source checks should still be manually reviewed for very niche topics. User approval (Level 4) is essential for layout and content before final delivery.",
+
+                footer_text: "Hermes AI Architecture Framework • Presentation Assistant Specification"
+            },
+            zh: {
+                hero_title: "演讲助手 (Presentation Assistant) AI Agent 架构",
+                hero_desc: "包含 Level 1 至 Level 5 的完整设计文档：涵盖重复任务识别、工作定义、决策流程图、Hermes Agent 配置文件及实际工具连接与测试结果。",
+                view_workflow: "查看流程图",
+                view_test_run: "测试结果与工具",
+                
+                // L1
+                l1_title: "Level 1 — 识别重复性任务",
+                l1_task_label: "重复任务",
+                l1_task_val: "为课堂作业准备演示文稿 (PPT)。",
+                l1_task_sub: "Agent 协助学生理解导师要求、确定核心主题、检索相关信息、制作 PowerPoint 幻灯片并准备演示。",
+                l1_role_label: "Agent 角色",
+                l1_role_val: "Presentation Assistant (演讲助手)",
+                l1_role_sub: "作为学生在准备作业全过程中的专属学术副手。",
+                l1_goal_label: "目标",
+                l1_goal_val: "将导师的作业转化为清晰、论据充分的演示文稿，供学生审查和批准。",
+                l1_goal_sub: "确保零虚构内容和严格可验证的引用来源。",
+
+                // L2
+                l2_title: "Level 2 — 定义工作与其具体要求",
+                l2_job_def_heading: "工作定义",
+                l2_job_def_body: "当收到导师给出的主题和作业要求时，Agent 会解析要求、确定核心重点、查找并筛选相关信息、制作简洁的 PowerPoint 幻灯片、自检质量，并在视为完成前要求学生审查幻灯片布局。",
+                l2_inputs_title: "输入 (Inputs)",
+                l2_in_1: "导师给出的主题与作业要求指导",
+                l2_in_2: "课程资料、录音、笔记以及教材中标记的段落",
+                l2_in_3: "来自互联网的相关信息与统计数据",
+                l2_outputs_title: "输出 (Outputs)",
+                l2_out_1: "带有参考文献的 PowerPoint 演示文稿",
+                l2_out_2: "清晰、易于理解的幻灯片",
+                l2_out_3: "供学生审查和批准的草稿布局预览",
+                l2_reqs_title: "幻灯片标准",
+                l2_req_1: "每张幻灯片仅表达一个核心观点",
+                l2_req_2: "每张幻灯片约 10-20 个单词（根据学生偏好上限 20 字）",
+                l2_req_3: "整洁无杂乱的布局",
+                l2_req_4: "可读性高的图表和相关图像",
+                l2_req_5: "所有事实主张与统计数据均注明来源",
+
+                // L3
+                l3_title: "Level 3 — 端到端工作流程与流程图",
+                l3_subtitle: "交互式决策树",
+                flow_1: "接收导师的主题和作业要求",
+                flow_2: "阅读作业并识别核心要求",
+                flow_2_sub: "从粗体文本、课堂录音、下划线笔记和橙色高亮中找出核心重点",
+                flow_q1: "主题是否清晰且聚焦？",
+                flow_no1: "复习课堂笔记并缩小主题范围",
+                flow_yes1: "选择相关关键词并搜索可靠来源",
+                flow_source_check: "检查出版商、日期、统计数据和来源相关性",
+                flow_q2: "是否存在强烈的核心议题或辩论？",
+                flow_yes2: "组织双方观点的论据",
+                flow_no2: "组织核心要点与支持性论据",
+                flow_outline: "创建大纲：引言、背景、主旨、结论及参考文献",
+                flow_ppt: "制作 PowerPoint：每页 1 个观点，每页不超过 20 个单词",
+                flow_visuals: "使用清晰的图表和相关图像",
+                flow_aicheck: "请求 AI 检查字数、布局、图表可读性及图片相关性",
+                flow_approve_q: "用户是否批准幻灯片布局？",
+                flow_rev: "否：修改布局与文本",
+                flow_app: "是",
+                flow_delivery: "交付幻灯片与参考文献",
+                flow_rehearse: "复习核心要点并预演演讲",
+
+                // L4
+                l4_title: "Level 4 — 创建 Hermes Agent 配置文件",
+                l4_meta: "Hermes 配置与 Agent 名称",
+                l4_agent_name: "Agent 名称: Presentation Assistant",
+                l4_desc: "配置文件包含工作目标、输入、输出、工作流、质量标准、自检机制、异常处理和局限性。",
+                l4_guardrail: "严格的学术诚信防护栏",
+                l4_rules_title: "配置文件指示 Agent 执行以下操作：",
+                l4_r1: "遵循 Level 2 和 Level 3 中定义的工作流程。",
+                l4_r2: "在使用前核查来源与统计数据。",
+                l4_r3: "在请求批准前检查幻灯片长度、布局、图表和图像。",
+                l4_r4: "当作业要求不明确或证据不足时主动询问学生。",
+                l4_strict_header: "严厉禁止行为与限制",
+                l4_r5: "绝不伪造统计数据、来源或引言。",
+                l4_r6: "绝不声称进行了未经实际操作的搜索或检查。",
+                l4_r7: "在学生批准布局之前绝不最终定稿。",
+
+                // L5
+                l5_title: "Level 5 — Presentation Assistant 工具连接与测试运行",
+                l5_tools_title: "已连接工具",
+                l5_tools_desc: "Hermes AI Core、学生学习管理系统 (LMS) 或直接聊天平台、学术数据库和可靠的互联网搜索 API（如 Google Scholar API、公共来源索引）以及 PowerPoint 生成 API。",
+                l5_hiw_title: "运行原理",
+                l5_hiw_desc: "学生通过 [学生平台] 提交作业和主题。Agent（使用 [Hermes]）首先识别并精炼要求（遵循 Level 2 和 3 工作流）。然后使用 [搜索 API] 查找并验证可靠来源（参考 Level 3 检查）并组织要点。使用 [PowerPoint API] 生成带有参考文献的草稿演示文稿，严格遵循 Level 2 幻灯片标准（每页 1 个观点，10-20 字，最多 20 字）。Agent 提供预览链接供学生审查布局和内容（此处集成了 Level 3 的“请求 AI 检查”步骤）。在获得学生明确批准后（Level 4 限制），最终的 PowerPoint 文件将被生成并通过 [学生平台] 交付。",
+                l5_results_title: "测试运行结果",
+                l5_results_desc: "演讲助手已在来自不同学术学科的各种作业主题中进行了测试（如历史辩论、科学综述）。测试确认该 Agent 具备以下能力：",
+                l5_res_1: "准确解析复杂的作业要求",
+                l5_res_2: "识别并验证可靠来源，绝不伪造数据",
+                l5_res_3: "构建配有恰当图表和图像的演示文稿",
+                l5_res_4: "集成的 AI 字数和布局可读性自检功能正常运行",
+                l5_limits_title: "系统局限性",
+                l5_lim_1: "Agent 依赖文本形式的作业和主题作为输入。",
+                l5_lim_2: "初始生成不包含复杂的实时同步协作编辑。",
+                l5_lim_3: "自动可靠性检查仅限于公认的学术和权威在线来源。",
+                l5_lim_4: "对于极少数小众主题，仍应人工复核来源检查。在最终交付前，用户批准（Level 4）对布局和内容至关重要。",
+
+                footer_text: "Hermes AI 架构框架 • Presentation Assistant 规范文档"
+            },
+            vi: {
+                hero_title: "Kiến trúc Agent AI - Presentation Assistant",
+                hero_desc: "Tài liệu chi tiết quy trình triển khai từ Level 1 đến Level 5: từ xác định nhiệm vụ, định nghĩa công việc, sơ đồ quy trình đến cấu hình profile Hermes Agent và kết quả chạy thử nghiệm.",
+                view_workflow: "Xem Sơ Đồ Quy Trình",
+                view_test_run: "Kết Quả Thử Nghiệm",
+                
+                // L1
+                l1_title: "Level 1 — Xác Định Nhiệm Vụ Định Kỳ",
+                l1_task_label: "Nhiệm Vụ Định Kỳ",
+                l1_task_val: "Chuẩn bị bài thuyết trình cho các bài tập trên lớp.",
+                l1_task_sub: "Agent giúp sinh viên hiểu yêu cầu của giảng viên, xác định chủ đề chính, nghiên cứu thông tin liên quan, tạo slide PowerPoint và chuẩn bị cho bài thuyết trình.",
+                l1_role_label: "Vai Trò Agent",
+                l1_role_val: "Presentation Assistant (Trợ Lý Thuyết Trình)",
+                l1_role_sub: "Đóng vai trò là trợ lý học thuật đồng hành trong suốt quá trình làm bài tập.",
+                l1_goal_label: "Mục Tiêu",
+                l1_goal_val: "Biến bài tập của giảng viên thành bài thuyết trình rõ ràng, có căn cứ vững chắc để sinh viên xem xét và duyệt.",
+                l1_goal_sub: "Đảm bảo không bịa đặt thông tin và trích dẫn hoàn toàn chính xác.",
+
+                // L2
+                l2_title: "Level 2 — Định Nghĩa Công Việc & Yêu Cầu",
+                l2_job_def_heading: "Định Nghĩa Công Việc",
+                l2_job_def_body: "Khi nhận chủ đề và bài tập từ giảng viên, Agent sẽ phân tích yêu cầu, xác định trọng tâm, tìm & chọn lọc thông tin phù hợp, tạo slide PowerPoint súc tích, tự kiểm tra chất lượng và yêu cầu sinh viên duyệt bố cục trước khi hoàn thành.",
+                l2_inputs_title: "Đầu Vào (Inputs)",
+                l2_in_1: "Chủ đề và hướng dẫn từ giảng viên",
+                l2_in_2: "Tài liệu bài giảng, bản ghi âm, ghi chú và đoạn quan trọng trong giáo trình",
+                l2_in_3: "Thông tin và số liệu thống kê liên quan từ internet",
+                l2_outputs_title: "Đầu Ra (Outputs)",
+                l2_out_1: "Bài thuyết trình PowerPoint có kèm nguồn trích dẫn",
+                l2_out_2: "Các slide rõ ràng, dễ theo dõi",
+                l2_out_3: "Bản xem thử bố cục để sinh viên duyệt",
+                l2_reqs_title: "Tiêu Chuẩn Slide",
+                l2_req_1: "Một ý tưởng chính trên mỗi slide",
+                l2_req_2: "Khoảng 10–20 từ mỗi slide, tối đa 20 từ dựa trên tùy chọn của sinh viên",
+                l2_req_3: "Bố cục gọn gàng, không lộn xộn",
+                l2_req_4: "Biểu đồ dễ đọc và hình ảnh minh họa phù hợp",
+                l2_req_5: "Cung cấp nguồn trích dẫn cho các số liệu & khẳng định thực tế",
+
+                // L3
+                l3_title: "Level 3 — Quy Trình Hoạt Động & Sơ Đồ Flowchart",
+                l3_subtitle: "Cây Quyết Định Tương Tác",
+                flow_1: "Nhận chủ đề và bài tập từ giảng viên",
+                flow_2: "Đọc bài tập và xác định các yêu cầu chính",
+                flow_2_sub: "Tìm trọng tâm từ chữ in đậm, bản ghi âm bài giảng, ghi chú gạch chân và điểm đánh dấu màu cam",
+                flow_q1: "Chủ đề đã rõ ràng và tập trung chưa?",
+                flow_no1: "Xem lại ghi chú bài giảng và thu hẹp chủ đề",
+                flow_yes1: "Chọn từ khóa phù hợp và tìm kiếm nguồn uy tín",
+                flow_source_check: "Kiểm tra nhà xuất bản, ngày tháng, số liệu thống kê và độ liên quan",
+                flow_q2: "Có vấn đề trung tâm hoặc tranh luận gay gắt không?",
+                flow_yes2: "Sắp xếp bằng chứng cho cả hai phản biện",
+                flow_no2: "Sắp xếp các ý chính và bằng chứng hỗ trợ",
+                flow_outline: "Tạo dàn ý: mở đầu, bối cảnh, ý chính, kết luận và tài liệu tham khảo",
+                flow_ppt: "Tạo PowerPoint: Một ý tưởng mỗi slide; không quá 20 từ mỗi slide",
+                flow_visuals: "Sử dụng biểu đồ rõ ràng và hình ảnh phù hợp",
+                flow_aicheck: "Yêu cầu AI kiểm tra số từ, bố cục, độ rõ của biểu đồ và độ liên quan của hình ảnh",
+                flow_approve_q: "Người dùng có chấp thuận bố cục slide không?",
+                flow_rev: "Chưa: chỉnh sửa",
+                flow_app: "Có",
+                flow_delivery: "Gửi slide và tài liệu tham khảo",
+                flow_rehearse: "Xem lại các ý chính và tập luyện bài thuyết trình",
+
+                // L4
+                l4_title: "Level 4 — Tạo Profile Cho Hermes Agent",
+                l4_meta: "Profile Hermes & Tên Agent",
+                l4_agent_name: "Tên Agent: Presentation Assistant",
+                l4_desc: "Hồ sơ bao gồm mục tiêu công việc, đầu vào, đầu ra, quy trình, tiêu chuẩn chất lượng, tự kiểm tra, xử lý ngoại lệ và hạn chế.",
+                l4_guardrail: "Hàng Rào Liêm Chính Học Thuật",
+                l4_rules_title: "Hồ sơ yêu cầu Agent thực hiện:",
+                l4_r1: "Tuân thủ quy trình làm việc đã định nghĩa ở Level 2 và 3.",
+                l4_r2: "Kiểm tra các nguồn và số liệu thống kê trước khi sử dụng.",
+                l4_r3: "Kiểm tra độ dài slide, bố cục, biểu đồ và hình ảnh trước khi xin phê duyệt.",
+                l4_r4: "Hỏi lại sinh viên khi bài tập chưa rõ ràng hoặc bằng chứng chưa đủ.",
+                l4_strict_header: "Các Hành Vi Nghiêm Cấm & Hạn Chế",
+                l4_r5: "Không bao giờ bịa đặt số liệu thống kê, nguồn trích dẫn hoặc câu nói.",
+                l4_r6: "Không bao giờ tuyên bố đã tìm kiếm hoặc kiểm tra điều gì trừ khi đã thực sự làm.",
+                l4_r7: "Không bao giờ chốt bài thuyết trình trước khi sinh viên phê duyệt bố cục.",
+
+                // L5
+                l5_title: "Level 5 — Kết Nối Công Cụ & Chạy Thử Nghiệm",
+                l5_tools_title: "Công Cụ Kết Nối",
+                l5_tools_desc: "Hermes AI Core, Hệ thống quản lý học tập sinh viên (LMS) hoặc nền tảng chat trực tiếp, Cơ sở dữ liệu học thuật và API tìm kiếm internet tin cậy (vd: Google Scholar API, chỉ mục nguồn công khai), và API tạo PowerPoint.",
+                l5_hiw_title: "Cách thức hoạt động",
+                l5_hiw_desc: "Sinh viên nộp bài tập và chủ đề qua [Nền tảng Sinh viên]. Agent (sử dụng [Hermes]) trước tiên xác định và tinh chỉnh yêu cầu (theo quy trình Level 2 và 3). Sau đó sử dụng [Search APIs] để tìm và xác minh các nguồn uy tín (tham chiếu các bước kiểm tra ở Level 3) và sắp xếp các ý. Bản nháp bài thuyết trình kèm trích dẫn được tạo bằng [PowerPoint API], tuân thủ nghiêm ngặt tiêu chuẩn slide Level 2 (một ý chính/slide, 10-20 từ, tối đa 20 từ). Agent cung cấp liên kết xem trước để sinh viên duyệt bố cục và nội dung (bước 'Yêu cầu AI kiểm tra' từ Level 3 được tích hợp ở đây). Sau khi sinh viên phê duyệt rõ ràng (điều kiện Level 4), tệp PowerPoint cuối cùng sẽ được tạo và gửi qua [Nền tảng Sinh viên].",
+                l5_results_title: "Kết quả chạy thử nghiệm",
+                l5_results_desc: "Presentation Assistant đã được thử nghiệm với nhiều chủ đề bài tập từ các ngành học khác nhau (vd: tranh luận lịch sử, tổng quan khoa học). Các bài kiểm tra xác nhận khả năng của agent:",
+                l5_res_1: "Phân tích chính xác các yêu cầu phức tạp",
+                l5_res_2: "Xác định và kiểm chứng các nguồn tin cậy mà không bịa đặt",
+                l5_res_3: "Xây dựng bài thuyết trình với biểu đồ và hình ảnh minh họa phù hợp",
+                l5_res_4: "Tính năng AI tự kiểm tra số từ và độ dễ đọc của bố cục hoạt động chính xác",
+                l5_limits_title: "Hạn chế",
+                l5_lim_1: "Agent phụ thuộc vào các bài tập và chủ đề dạng văn bản làm đầu vào.",
+                l5_lim_2: "Phiên bản tạo ban đầu chưa bao gồm việc chỉnh sửa đồng thời theo thời gian thực.",
+                l5_lim_3: "Kiểm tra độ tin cậy tự động bị giới hạn ở các nguồn trực tuyến học thuật và chính thống đã được công nhận.",
+                l5_lim_4: "Việc kiểm tra nguồn vẫn nên được rà soát thủ công đối với các chủ đề quá hẹp. Sự phê duyệt của người dùng (Level 4) là thiết yếu đối với bố cục và nội dung trước khi giao bản cuối cùng.",
+
+                footer_text: "Khung Kiến Trúc Hermes AI • Tài Liệu Kỹ Thuật Presentation Assistant"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function changeLang(lang) {
+            currentLang = lang;
+
+            // Update Active Button Styles
+            ['en', 'zh', 'vi'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (l === lang) {
+                    btn.className = "px-3 py-1 text-xs font-bold rounded-lg transition duration-150 bg-white text-blue-700 shadow-sm";
+                } else {
+                    btn.className = "px-3 py-1 text-xs font-bold rounded-lg transition duration-150 text-slate-600 hover:text-slate-900";
+                }
+            });
+
+            // Replace Text Content
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
